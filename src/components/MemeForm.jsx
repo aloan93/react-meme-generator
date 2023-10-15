@@ -6,14 +6,24 @@ function MemeForm({ setInputs }) {
 
   return (
     <form onSubmit={getInputs}>
-      <label htmlFor="top-text">Top Text:</label>
-      <input type="text" name="top-text" placeholder="Top Text" />
-      <label htmlFor="bottom-text">Bottom Text:</label>
-      <input type="text" name="bottom-text" placeholder="Bottom Text" />
-      <label htmlFor="image-url">Image URL:</label>
-      <input type="text" name="image-url" placeholder="Image URL" />
-      <button>Submit</button>
-      <button type="reset">Clear</button>
+      <div className="input-container">
+        <div className="input" id="top-text">
+          <label htmlFor="top-text">Top Text:</label>
+          <input type="text" name="top-text" placeholder="Top Text" />
+        </div>
+        <div className="input" id="bottom-text">
+          <label htmlFor="bottom-text">Bottom Text:</label>
+          <input type="text" name="bottom-text" placeholder="Bottom Text" />
+        </div>
+        <div className="input" id="url-text">
+          <label htmlFor="image-url">Image URL:</label>
+          <input type="text" name="image-url" placeholder="Image URL" />
+        </div>
+      </div>
+      <div className="form-buttons">
+        <button>Submit</button>
+        <button type="reset">Clear</button>
+      </div>
     </form>
   );
 }
