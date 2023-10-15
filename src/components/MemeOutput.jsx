@@ -25,7 +25,11 @@ function MemeOutput({ topText, bottomText, urlText }) {
     };
   });
 
-  return <canvas ref={canvasRef}></canvas>;
+  return (
+    <div id="output">
+      <canvas ref={canvasRef}></canvas>
+    </div>
+  );
 }
 
 export default MemeOutput;
