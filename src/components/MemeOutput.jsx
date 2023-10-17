@@ -1,6 +1,7 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 function MemeOutput({ topText, bottomText, urlText }) {
+  const [isHidden, setIsHidden] = useState(true);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -8,8 +9,10 @@ function MemeOutput({ topText, bottomText, urlText }) {
     const ctx = canvas.getContext("2d");
     const image = new Image();
     image.src = urlText;
+    image.crossOrigin = "annonymous";
 
     image.onload = () => {
+      setIsHidden(false);
       canvas.width = image.width;
       canvas.height = image.height;
       ctx.drawImage(image, 0, 0);
@@ -25,9 +28,23 @@ function MemeOutput({ topText, bottomText, urlText }) {
     };
   });
 
+  function saveImageToLocal(e) {
+    const link = e.currentTarget;
+    link.setAttribute("download", "meme.png");
+    const image = canvasRef.current.toDataURL("image/png");
+    link.setAttribute("href", image);
+  }
+
   return (
     <div id="output">
       <canvas ref={canvasRef}></canvas>
+      {!isHidden && (
+        <div>
+          <a id="download-link" href="download_link" onClick={saveImageToLocal}>
+            Download
+          </a>
+        </div>
+      )}
     </div>
   );
 }
