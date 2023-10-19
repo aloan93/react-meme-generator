@@ -51,6 +51,7 @@ button {
 
 canvas {
   margin: 20px;
+  max-width: 90vw;
 }
 
 #output {
@@ -61,7 +62,7 @@ canvas {
 
 #download-link {
   color: black;
-  border: 1px solid black;
+  border: 1px solid darkcyan;
   border-radius: 12px;
   padding: 8px;
   background-color: darkcyan;
