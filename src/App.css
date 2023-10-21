@@ -40,6 +40,7 @@ fieldset {
     -1px -1px 0 black;
   color: #d8dbe2;
   max-width: 300px;
+  margin: 10px 0;
 }
 
 .radio-label {
@@ -55,9 +56,9 @@ fieldset {
     -1px -1px 0 black;
 }
 
-.form-buttons {
+.form-button-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .input {
@@ -65,8 +66,8 @@ fieldset {
   padding: 10px;
 }
 
-button {
-  margin: 10px 0;
+.form-buttons {
+  margin: 10px 10px;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -82,13 +83,25 @@ canvas {
   align-items: center;
 }
 
-#download-link {
-  color: black;
-  border: 1px solid darkcyan;
+#download-link,
+#reset-button {
   border-radius: 12px;
+  margin: 0 10px;
   padding: 8px;
-  background-color: darkcyan;
   text-decoration: none;
+  font-size: medium;
+}
+
+#download-link {
+  color: rgb(0, 41, 41);
+  border: 1px solid rgb(0, 41, 41);
+  background-color: rgb(43, 182, 182);
+}
+
+#reset-button {
+  color: rgb(26, 1, 1);
+  border: 1px solid rgb(26, 1, 1);
+  background-color: rgb(233, 93, 93);
 }
 
 #download-link:hover {
