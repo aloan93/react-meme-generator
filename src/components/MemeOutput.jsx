@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 
-function MemeOutput({ topText, bottomText, suppliedImage, setInputs }) {
+function MemeOutput({ topText, bottomText, suppliedImage }) {
   const canvasRef = useRef(null);
   const [isHidden, setIsHiden] = useState(true);
 
@@ -41,7 +41,6 @@ function MemeOutput({ topText, bottomText, suppliedImage, setInputs }) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.width = "300px";
     canvas.height = "150px";
-    setInputs([]);
     setIsHiden(true);
   }
 

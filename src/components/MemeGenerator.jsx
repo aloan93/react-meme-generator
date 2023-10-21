@@ -13,7 +13,6 @@ function MemeGenerator() {
           topText={inputs[0]}
           bottomText={inputs[1]}
           suppliedImage={inputs[2]}
-          setInputs={setInputs}
         />
       </main>
     </>
