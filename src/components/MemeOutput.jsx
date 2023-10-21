@@ -1,18 +1,18 @@
 import { useRef, useEffect, useState } from "react";
 
-function MemeOutput({ topText, bottomText, urlText }) {
-  const [isHidden, setIsHidden] = useState(true);
+function MemeOutput({ topText, bottomText, suppliedImage }) {
   const canvasRef = useRef(null);
+  const [isHidden, setIsHiden] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const image = new Image();
-    image.src = urlText;
+    image.src = suppliedImage;
     image.crossOrigin = "annonymous";
 
     image.onload = () => {
-      setIsHidden(false);
+      setIsHiden(false);
       canvas.width = image.width;
       canvas.height = image.height;
       ctx.drawImage(image, 0, 0);
@@ -35,17 +35,34 @@ function MemeOutput({ topText, bottomText, urlText }) {
     link.setAttribute("href", image);
   }
 
+  function clearAll() {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.width = "300px";
+    canvas.height = "150px";
+    setIsHiden(true);
+  }
+
   return (
-    <div id="output">
-      <canvas ref={canvasRef}></canvas>
-      {!isHidden && (
-        <div>
-          <a id="download-link" href="download_link" onClick={saveImageToLocal}>
-            Download
-          </a>
-        </div>
-      )}
-    </div>
+    <>
+      <div id="output">
+        <canvas ref={canvasRef}></canvas>
+        {!isHidden && (
+          <div>
+            <a
+              id="download-link"
+              href="download_link"
+              onClick={saveImageToLocal}>
+              Download
+            </a>
+            <button id="reset-button" onClick={clearAll}>
+              Reset
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

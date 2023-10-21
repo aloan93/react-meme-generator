@@ -3,7 +3,7 @@ import MemeOutput from "./MemeOutput";
 import { useState } from "react";
 
 function MemeGenerator() {
-  const [inputs, setInputs] = useState(["", "", ""]);
+  const [inputs, setInputs] = useState([]);
 
   return (
     <>
@@ -12,7 +12,7 @@ function MemeGenerator() {
         <MemeOutput
           topText={inputs[0]}
           bottomText={inputs[1]}
-          urlText={inputs[2]}
+          suppliedImage={inputs[2]}
         />
       </main>
     </>
